@@ -1,2 +1,3 @@
-# coins
-Coins para o sistema OS.Linux v41
+# Instalação Primária
+<br>
+OS.Linux v.1
