@@ -18,8 +18,11 @@ ssh -T git@github.com
 ```
 - yes
 
+
 # APPS
-# chown -R $USER:$USER ~/.config/google-chrome
+
+unsquashfs -d ~/.config/google-chrome chrome-backup.squashfs
+chown -R $USER:$USER ~/.config/google-chrome
 
 
 
