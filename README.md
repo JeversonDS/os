@@ -18,5 +18,8 @@ ssh -T git@github.com
 ```
 - yes
 
+# APPS
+# chown -R $USER:$USER ~/.config/google-chrome
+
 
 
