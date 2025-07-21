@@ -1,35 +1,46 @@
-#!/bin/bash
+# Fightcade
+echo "Instalando Fightcade..."
 
-# Ir para a pasta Documents
-cd ~/Documents || exit
+# Ir para a pasta pessoal do usuário
+cd "$HOME/Documents" || exit
 
-# Baixar o instalador do Fightcade
+# Baixar o Fightcade
 wget -O fightcade.tar.gz https://www.fightcade.com/download/linux
 
-# Criar pasta Fightcade e extrair
+# Extrair o Fightcade
 tar -xzf fightcade.tar.gz
 
 # Baixar o fc2json.zip
 wget -O fc2json.zip https://fightcade.download/fc2json.zip
 
-# Extrair para a pasta de emuladores dentro do Fightcade
-unzip -o fc2json.zip -d /home/pinguim/Documents/Fightcade/emulator/
+# Criar pasta de emuladores (caso não exista)
+mkdir -p "$HOME/Documents/Fightcade/emulator"
+
+# Extrair fc2json.zip na pasta correta
+unzip -o fc2json.zip -d "$HOME/Documents/Fightcade/emulator/"
 
 # Remover os arquivos baixados
 rm fightcade.tar.gz fc2json.zip
 
-chmod -R 777 /home/pinguim/Documents/Fightcade
+# Dar permissões necessárias
+chmod -R 755 "$HOME/Documents/Fightcade"
 
-echo"#!/usr/bin/env xdg-open
+# Criar atalho .desktop
+mkdir -p "$HOME/.local/share/applications"
+
+cat <<EOF > "$HOME/.local/share/applications/Fightcade.desktop"
 [Desktop Entry]
 Version=1.0
 Type=Application
-Terminal=false
-Exec=/home/pinguim/Documents/Fightcade/Fightcade2.sh
 Name=Fightcade
-Comment=Fightcade
-Categories=Game;Emulator;ArcadeGame
-Icon=/home/pinguim/Documents/Fightcade/fc2-electron/resources/app/icon.png
-" > /home/pinguim/Documents/Fightcade/Fightcade.desktop
+Comment=Fightcade client for online retro gaming
+Exec=$HOME/Documents/Fightcade/Fightcade2.sh
+Icon=$HOME/Documents/Fightcade/fc2-electron/resources/app/icon.png
+Terminal=false
+Categories=Game;Emulator;ArcadeGame;
+EOF
 
-echo "Instalação concluída com sucesso!"
+# Tornar o atalho executável
+chmod +x "$HOME/.local/share/applications/Fightcade.desktop"
+
+echo "Fightcade instalado com sucesso!"
