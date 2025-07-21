@@ -1,4 +1,4 @@
-#!/bin/bash
+g#!/bin/bash
 # Curitiba 20 de Julho de 2025.
 # Editor: Jeverson D. Silva   ///@JCGAMESCLASSICOS...
 
@@ -44,7 +44,7 @@ sudo apt install -y git build-essential libudev-dev libx11-dev libgl1-mesa-dev \
 libasound2-dev libpulse-dev libv4l-dev libxi-dev libxext-dev libxinerama-dev \
 libxrandr-dev libxcursor-dev libxkbcommon-dev libwayland-dev libdrm-dev \
 libsdl2-dev libfreetype6-dev libavcodec-dev libavformat-dev libavutil-dev \
-libswscale-dev libssl-dev pkg-config zlib1g-dev libx11-xcb-dev 
+libswscale-dev libssl-dev pkg-config zlib1g-dev libx11-xcb-dev ffmpeg shc mpv 
 
 
 
